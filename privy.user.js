@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         privy
-// @version      0.13
+// @version      0.14
 // @author       IvanAgafonov
 // @match        https://privy.abs.xyz/*
 // @downloadURL  https://github.com/IvanAgafonov/test-violentmonkey/raw/main/privy.user.js
@@ -85,29 +85,31 @@ async function connectWallet(){
 
 async function autoBuy() {
 
+  for(var i=0;i<3;i++) {
+    var up = Array.from(document.querySelectorAll("span")).filter(el => el.textContent == "Rabby Wallet" );
+    if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(17000, 17100));
+    }
 
-  var up = Array.from(document.querySelectorAll("span")).filter(el => el.textContent == "Rabby Wallet" );
-  if (up.length != 0){
-    triggerEvents(up[0]);
-    await sleep(getRandomDelay(17000, 17100));
-  }
+    up = Array.from(document.querySelectorAll("button")).filter(el => el.textContent == "Approve" );
+    if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(17000, 17100));
+    }
 
-  up = Array.from(document.querySelectorAll("button")).filter(el => el.textContent == "Approve" );
-  if (up.length != 0){
-    triggerEvents(up[0]);
-    await sleep(getRandomDelay(17000, 17100));
-  }
+    up = Array.from(document.querySelectorAll("button")).filter(el => el.textContent == "All Done" );
+    if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(3000, 4000));
+    }
 
-  up = Array.from(document.querySelectorAll("button")).filter(el => el.textContent == "All Done" );
-  if (up.length != 0){
-    triggerEvents(up[0]);
-    await sleep(getRandomDelay(3000, 4000));
-  }
-
-  up = Array.from(document.querySelectorAll("button")).filter(el => el.textContent == "Sign and continue" );
-  if (up.length != 0){
-    triggerEvents(up[0]);
-    await sleep(getRandomDelay(3000, 4000));
+    up = Array.from(document.querySelectorAll("button")).filter(el => el.textContent == "Sign and continue" );
+    if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(3000, 4000));
+    }
+    await sleep(getRandomDelay(5000, 6000));
   }
 
 
