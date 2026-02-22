@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         linea ignition
-// @version      0.1
+// @version      0.11
 // @author       IvanAgafonov
 // @match        https://linea-ignition.brevis.network/
 // @downloadURL  https://github.com/IvanAgafonov/test-violentmonkey/raw/main/linea_ignition.user.js
@@ -100,16 +100,18 @@ async function autoBuy() {
     await sleep(getRandomDelay(13000, 14000));
   }
 
-  up = Array.from(document.querySelectorAll("div div div div div div div div div div")).filter(el => el.textContent == "Claim")
-  if (up.length != 0){
-    triggerEvents(up[0]);
-    await sleep(getRandomDelay(16000, 17000));
-  }
+  if (getRandomDelay(1, 1100) < 100) {
+    up = Array.from(document.querySelectorAll("div div div div div div div div div div")).filter(el => el.textContent == "Claim")
+    if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(16000, 17000));
+    }
 
-  up = Array.from(document.querySelectorAll("div div div div div div div div div div")).filter(el => el.textContent == "Claim")
-  if (up.length != 1){
-    triggerEvents(up[1]);
-    await sleep(getRandomDelay(13000, 14000));
+    up = Array.from(document.querySelectorAll("div div div div div div div div div div")).filter(el => el.textContent == "Claim")
+    if (up.length != 1){
+      triggerEvents(up[1]);
+      await sleep(getRandomDelay(13000, 14000));
+    }
   }
 
   up = Array.from(document.querySelectorAll("div div div div div div div div div div div span")).filter(el => el.textContent == "0 LINEA")
