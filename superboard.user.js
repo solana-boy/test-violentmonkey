@@ -59,7 +59,7 @@ function sleep(ms = 0) {
 function querySelectorAllShadows(selector, el = document.body) {
   // recurse on childShadows
   const childShadows = Array.from(el.querySelectorAll('*')).
-    map(el => el.shadowRoot).filter(Boolean);
+    map(el => el.shadowRoot).filter(Boolean); 
 
   // console.log('[querySelectorAllShadows]', selector, el, `(${childShadows.length} shadowRoots)`);
 
