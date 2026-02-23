@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name         superboard
-// @version      0.18
+// @version      0.19
 // @author       IvanAgafonov
 // @match        https://superboard.xyz/*
+// @match        https://www.superboard.xyz/quests
 // @downloadURL  https://github.com/IvanAgafonov/test-violentmonkey/raw/main/superboard.user.js
 // @updateURL    https://github.com/IvanAgafonov/test-violentmonkey/raw/main/superboard.user.js
 // @homepage     https://github.com/IvanAgafonov/test-violentmonkey
