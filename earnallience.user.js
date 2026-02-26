@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         earnallience
-// @version      0.13
+// @version      0.14
 // @author       IvanAgafonov
 // @match        https://www.playfull.com/*
 // @downloadURL  https://github.com/IvanAgafonov/test-violentmonkey/raw/main/earnallience.user.js
@@ -90,6 +90,48 @@ async function autoBuy() {
     triggerEvents(up[0].parentElement.parentElement);
     up[0].parentElement.parentElement.click()
     await sleep(getRandomDelay(2000, 4000));
+  }
+
+  up = Array.from(document.querySelectorAll("button")).filter(el => el.textContent.includes("Sign in"));
+  if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(5000, 7000));
+
+      up = Array.from(document.querySelectorAll("input[type=email]"))
+      if (up.length != 0){
+        up[0].click()
+
+        const lastValue = up[0].value;
+        up[0].value = email;
+        const event = new Event("input", { bubbles: true });
+        const tracker = up[0]._valueTracker;
+        if (tracker) {
+          tracker.setValue(lastValue);
+        }
+        up[0].dispatchEvent(event);
+        await sleep(getRandomDelay(2200, 2300));
+      }
+
+      up = Array.from(document.querySelectorAll("input[type=password]"))
+      if (up.length != 0){
+        up[0].click()
+
+        const lastValue = up[0].value;
+        up[0].value = "playfull132456#S";
+        const event = new Event("input", { bubbles: true });
+        const tracker = up[0]._valueTracker;
+        if (tracker) {
+          tracker.setValue(lastValue);
+        }
+        up[0].dispatchEvent(event);
+        await sleep(getRandomDelay(2200, 2300));
+      }
+
+      up = Array.from(document.querySelectorAll("button")).filter(el => el.textContent.includes("Log in"));
+      if (up.length != 0){
+        triggerEvents(up[0]);
+        await sleep(getRandomDelay(6000, 7000));
+      }
   }
 
 
