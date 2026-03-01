@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         hume daily wiki
-// @version      0.1
+// @version      0.11
 // @author       IvanAgafonov
 // @match        https://www.wikipedia.org/
 // @downloadURL  https://github.com/IvanAgafonov/test-violentmonkey/raw/main/hume_daily_wiki.user.js
@@ -70,7 +70,7 @@ async function connectWallet(){
 
 async function autoBuy() {
 
-  window.open('https://humeworld.xyz/daily-spin', '_blank')
+  window.open('https://linea.build/hub/rewards', '_blank')
 
 }
 
