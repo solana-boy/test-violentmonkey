@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         mira
-// @version      0.1
+// @version      0.11
 // @author       Solana-boy
 // @match        https://app.mira.top/*
 // @downloadURL  https://github.com/solana-boy/test-violentmonkey/raw/main/mira.user.js
@@ -77,8 +77,8 @@ async function autoBuy() {
     await sleep(getRandomDelay(4000, 5000));
   }
 
-  var up = Array.from(document.querySelectorAll("button p")).filter(el => el.textContent == "Claim");
-  if (up.length >= 2){
+  var up = Array.from(Array.from(document.querySelectorAll("div p")).filter(el => el.textContent == "Daily Bonus")[0].parentElement.parentElement.parentElement.querySelectorAll("button p")).filter(el => el.textContent == "Claim");
+  if (up.length != 0){
     triggerEvents(up[0]);
     await sleep(getRandomDelay(2000, 3000));
   }
