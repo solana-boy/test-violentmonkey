@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         mira
-// @version      0.11
+// @version      0.12
 // @author       Solana-boy
 // @match        https://app.mira.top/*
 // @downloadURL  https://github.com/solana-boy/test-violentmonkey/raw/main/mira.user.js
@@ -77,7 +77,11 @@ async function autoBuy() {
     await sleep(getRandomDelay(4000, 5000));
   }
 
-  var up = Array.from(Array.from(document.querySelectorAll("div p")).filter(el => el.textContent == "Daily Bonus")[0].parentElement.parentElement.parentElement.querySelectorAll("button p")).filter(el => el.textContent == "Claim");
+  var up = Array.from(document.querySelectorAll('div[class="page-base page-base--no-scrollbar"]'));
+  up[0].scrollTo(0, 1000);
+  await sleep(getRandomDelay(900, 990));
+
+  var up = Array.from(Array.from(document.querySelectorAll("div p")).filter(el => el.textContent.includes("Daily Bonus"))[0].parentElement.parentElement.parentElement.parentElement.parentElement.querySelectorAll("button p")).filter(el => el.textContent.includes("Claim"));
   if (up.length != 0){
     triggerEvents(up[0]);
     await sleep(getRandomDelay(2000, 3000));
