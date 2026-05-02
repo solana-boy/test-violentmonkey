@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         mira
-// @version      0.12
+// @version      0.13
 // @author       Solana-boy
 // @match        https://app.mira.top/*
 // @downloadURL  https://github.com/solana-boy/test-violentmonkey/raw/main/mira.user.js
@@ -77,7 +77,7 @@ async function autoBuy() {
     await sleep(getRandomDelay(4000, 5000));
   }
 
-  var up = Array.from(document.querySelectorAll('div[class="page-base page-base--no-scrollbar"]'));
+  var up = Array.from(document.querySelectorAll('div'));
   up[0].scrollTo(0, 1000);
   await sleep(getRandomDelay(900, 990));
 
