@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         mira
-// @version      0.13
+// @version      0.14
 // @author       Solana-boy
 // @match        https://app.mira.top/*
 // @downloadURL  https://github.com/solana-boy/test-violentmonkey/raw/main/mira.user.js
@@ -69,7 +69,45 @@ async function connectWallet(){
   await sleep(getRandomDelay(2000, 3100));
 }
 
+// M6.447 11.431c-.498 0-.872-.382-.872-.888a.92.92 0 0 1 .282-.656l5.47-5.478a.96.96 0 0 1 .673-.29c.249 0 .49.107.672.29l5.47 5.478c.192.2.283.415.283.656 0 .506-.365.888-.864.888a.94.94 0 0 1-.647-.265l-1.884-1.86-2.192-2.449.067 1.793v10.31c0 .548-.365.921-.905.921-.531 0-.905-.373-.905-.921V8.65l.067-1.8L8.97 9.305l-1.884 1.86a.92.92 0 0 1-.64.265
+
 async function autoBuy() {
+
+  var up = Array.from(document.querySelectorAll('button p')).filter(el => el.textContent.includes("Start"));
+  if (up.length != 0){
+    triggerEvents(up[0]);
+    await sleep(getRandomDelay(3000, 3300));
+    up = Array.from(document.querySelectorAll('button p')).filter(el => el.textContent.includes("Continue"));
+    if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(3000, 3300));
+    }
+    up = Array.from(document.querySelectorAll('button p')).filter(el => el.textContent.includes("Skip"));
+    if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(3000, 3300));
+    }
+    up = Array.from(document.querySelectorAll('button p')).filter(el => el.textContent.includes("Skip"));
+    if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(3000, 3300));
+    }
+    up = Array.from(document.querySelectorAll('button p')).filter(el => el.textContent.includes("Random name"));
+    if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(3000, 3300));
+    }
+    up = Array.from(document.querySelectorAll("path[d='M6.447 11.431c-.498 0-.872-.382-.872-.888a.92.92 0 0 1 .282-.656l5.47-5.478a.96.96 0 0 1 .673-.29c.249 0 .49.107.672.29l5.47 5.478c.192.2.283.415.283.656 0 .506-.365.888-.864.888a.94.94 0 0 1-.647-.265l-1.884-1.86-2.192-2.449.067 1.793v10.31c0 .548-.365.921-.905.921-.531 0-.905-.373-.905-.921V8.65l.067-1.8L8.97 9.305l-1.884 1.86a.92.92 0 0 1-.64.265']"));
+    if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(3000, 3300));
+    }
+    up = Array.from(document.querySelectorAll('button p')).filter(el => el.textContent.includes("Skip"));
+    if (up.length != 0){
+      triggerEvents(up[0]);
+      await sleep(getRandomDelay(3000, 3300));
+    }
+  }
 
   var up = Array.from(document.querySelectorAll('a[href="/balance"]'));
   if (up.length != 0){
