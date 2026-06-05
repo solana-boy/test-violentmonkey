@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         earnallience
-// @version      0.15
+// @version      0.16
 // @author       IvanAgafonov
 // @match        https://www.playfull.com/*
 // @downloadURL  https://github.com/IvanAgafonov/test-violentmonkey/raw/main/earnallience.user.js
@@ -167,6 +167,13 @@ async function autoBuy() {
       up[0].parentElement.parentElement.click()
       await sleep(getRandomDelay(2000, 4000));
     }
+  }
+
+  await sleep(getRandomDelay(13000, 14000));
+  up = Array.from(document.querySelectorAll("button")).filter(el => el.textContent.includes("I consent"));
+  if (up.length != 0){
+    triggerEvents(up[0]);
+    await sleep(getRandomDelay(13000, 14000));
   }
 
 //   up = Array.from(document.querySelectorAll("span")).filter(el => el.textContent == "Claim" );
