@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         mira
-// @version      0.14
+// @version      0.15
 // @author       Solana-boy
 // @match        https://app.mira.top/*
 // @downloadURL  https://github.com/solana-boy/test-violentmonkey/raw/main/mira.user.js
@@ -110,6 +110,18 @@ async function autoBuy() {
   }
 
   var up = Array.from(document.querySelectorAll('a[href="/balance"]'));
+  if (up.length != 0){
+    triggerEvents(up[0]);
+    await sleep(getRandomDelay(4000, 5000));
+  }
+
+  up = Array.from(document.querySelectorAll('li p')).filter(el => el.textContent.includes("Settings"));
+  if (up.length != 0){
+    triggerEvents(up[0]);
+    await sleep(getRandomDelay(4000, 5000));
+  }
+
+  up = Array.from(document.querySelectorAll('div p')).filter(el => el.textContent.includes("My Tokens"));
   if (up.length != 0){
     triggerEvents(up[0]);
     await sleep(getRandomDelay(4000, 5000));
